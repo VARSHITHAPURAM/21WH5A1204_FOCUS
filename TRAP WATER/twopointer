@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int trap(vector<int>& h) {
+        int l=0,r=0,i=0,j=h.size()-1,s = 0;
+        while(i < j){
+            if((l = max(l, h[i])) <= (r = max(r, h[j])))
+            {
+                s += l - h[i];
+                i++;
+            }
+            else{
+                s += r - h[j];
+                j--;
+            }
+        }
+        return s;
+    }
+};
